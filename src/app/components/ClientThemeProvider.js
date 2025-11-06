@@ -9,11 +9,9 @@ const darkTheme = createTheme({
         background: {
             default: "#1a1625",
             paper: "#2a2238",
+            appbar: "#2b1f40",
         },
-        text: { primary: "#e0e0e0" },
-    },
-    typography: {
-        fontFamily: "'Eveleth Solid','Tahoma'",
+        text: { primary: "#FFFFF0" },
     },
 });
 

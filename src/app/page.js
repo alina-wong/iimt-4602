@@ -9,7 +9,7 @@ import "./globals.css";
 //i use mock data for the nfts for now
 export default function Home() {
   const items = [
-    { name: "Chromatic abberation", price: "1.2 ETH", img: "/MockNfts/nft1.png" },
+    { name: "Gungnir", price: "1.2 ETH", img: "/MockNfts/nft1.png" },
     { name: "Green Energy", price: "0.5 ETH", img: "/MockNfts/nft2.png" },
     { name: "Crakow!", price: "2.0 ETH", img: "/MockNfts/nft3.png" },
     { name: "Asiimov", price: "3.1 ETH", img: "/MockNfts/nft4.png" },
