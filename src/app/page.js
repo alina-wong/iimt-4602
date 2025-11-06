@@ -1,65 +1,117 @@
-import Image from "next/image";
+"use client";
 
+import { Box, Card, CardActionArea, CardMedia, CardContent, Typography, Grid} from "@mui/material";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./globals.css";
+
+//i use mock data for the nfts for now
 export default function Home() {
+  const items = [
+    { name: "Chromatic abberation", price: "1.2 ETH", img: "/MockNfts/nft1.png" },
+    { name: "Green Energy", price: "0.5 ETH", img: "/MockNfts/nft2.png" },
+    { name: "Crakow!", price: "2.0 ETH", img: "/MockNfts/nft3.png" },
+    { name: "Asiimov", price: "3.1 ETH", img: "/MockNfts/nft4.png" },
+    { name: "Chromatic abberation", price: "0.8 ETH", img: "/MockNfts/nft5.png" },
+  ];
+//possibility to add a search bar & filter later?
+  const gridItems = [
+    { name: "StatTrak", price: "0.8 ETH", img: "/MockNfts/nft6.png" },
+    { name: "Dragon Lore", price: "1.5 ETH", img: "/MockNfts/nft7.png" },
+    { name: "Karambit", price: "2.2 ETH", img: "/MockNfts/nft8.png" },
+    { name: "Aerial", price: "0.9 ETH", img: "/MockNfts/nft9.png" },
+    { name: "Neon Rider", price: "3.0 ETH", img: "/MockNfts/nft10.png" },
+  ];
+
+  const settings = {
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: "150px",
+    focusOnSelect: true,
+    speed: 350,
+    responsive: [
+      { breakpoint: 960, settings: { slidesToShow: 2 } },
+      { breakpoint: 600, settings: { slidesToShow: 1 } },
+    ],
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <Box sx={{ p: 3 }}>
+      <Typography variant="h5" gutterBottom>
+        Popular this week
+      </Typography>
+
+      <Slider {...settings}>
+        {items.map((item, index) => (
+          <Box key={index} sx={{ px: 1 }}>
+            <Card
+              sx={{
+                backgroundColor: "background.paper",
+                transition: "transform 0.3s",
+                "&:hover": { transform: "scale(1.05)" },
+              }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="75"
+                  image={item.img}
+                  alt={item.name}
+                />
+                <CardContent>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 70 }}>
+                    {item.name}
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontWeight: 700 }}>
+                    {item.price}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Box>
+        ))}
+      </Slider>
+      <Box sx={{ mt: 5 }}>
+        <Typography variant="h5" gutterBottom>
+          More NFTs
+        </Typography>
+        <Grid container spacing={2}>
+          {gridItems.map((item, index) => (
+            <Grid item xs={6} sm={4} md={3} lg={2} key={index}>
+              <Card
+                sx={{
+                  px: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  
+                  "&:hover": { transform: "scale(1.03)", transition: "transform 0.3s" },
+                }}
+              >
+                <CardActionArea sx={{ height: "100%" }}>
+                  <CardMedia
+                    component="img"
+                    image={item.img}
+                    alt={item.name}
+                    sx={{ width: "100%", height: 140, objectFit: "cover" }}
+                  />
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 70 }}>
+                      {item.name}
+                    </Typography>
+                    <Typography variant="body2" sx={{ fontWeight: 700 }}>
+                      {item.price}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </Box>
   );
 }
