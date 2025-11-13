@@ -1,6 +1,7 @@
 "use client";
 
 import { Box, Card, CardActionArea, CardMedia, CardContent, Typography, Grid} from "@mui/material";
+import { useRouter } from "next/navigation";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,20 +9,21 @@ import "./globals.css";
 
 //i use mock data for the nfts for now
 export default function Home() {
+  const router = useRouter();
   const items = [
-    { name: "Gungnir", price: "1.2 ETH", img: "/MockNfts/nft1.png" },
-    { name: "Green Energy", price: "0.5 ETH", img: "/MockNfts/nft2.png" },
-    { name: "Crakow!", price: "2.0 ETH", img: "/MockNfts/nft3.png" },
-    { name: "Asiimov", price: "3.1 ETH", img: "/MockNfts/nft4.png" },
-    { name: "Chromatic abberation", price: "0.8 ETH", img: "/MockNfts/nft5.png" },
+    { id: 1, name: "Gungnir", price: "1.2 ETH", img: "/MockNfts/nft1.png" },
+    { id: 2, name: "Green Energy", price: "0.5 ETH", img: "/MockNfts/nft2.png" },
+    { id: 3, name: "Crakow!", price: "2.0 ETH", img: "/MockNfts/nft3.png" },
+    { id: 4, name: "Asiimov", price: "3.1 ETH", img: "/MockNfts/nft4.png" },
+    { id: 5, name: "Chromatic abberation", price: "0.8 ETH", img: "/MockNfts/nft5.png" },
   ];
 //possibility to add a search bar & filter later?
   const gridItems = [
-    { name: "StatTrak", price: "0.8 ETH", img: "/MockNfts/nft6.png" },
-    { name: "Dragon Lore", price: "1.5 ETH", img: "/MockNfts/nft7.png" },
-    { name: "Karambit", price: "2.2 ETH", img: "/MockNfts/nft8.png" },
-    { name: "Aerial", price: "0.9 ETH", img: "/MockNfts/nft9.png" },
-    { name: "Neon Rider", price: "3.0 ETH", img: "/MockNfts/nft10.png" },
+    { id: 6, name: "StatTrak", price: "0.8 ETH", img: "/MockNfts/nft6.png" },
+    { id: 7, name: "Dragon Lore", price: "1.5 ETH", img: "/MockNfts/nft7.png" },
+    { id: 8, name: "Karambit", price: "2.2 ETH", img: "/MockNfts/nft8.png" },
+    { id: 9, name: "Aerial", price: "0.9 ETH", img: "/MockNfts/nft9.png" },
+    { id: 10, name: "Neon Rider", price: "3.0 ETH", img: "/MockNfts/nft10.png" },
   ];
 
   const settings = {
@@ -54,7 +56,7 @@ export default function Home() {
                 "&:hover": { transform: "scale(1.05)" },
               }}
             >
-              <CardActionArea>
+              <CardActionArea onClick={() => router.push(`/product/${item.id}`)}>
                 <CardMedia
                   component="img"
                   height="75"
@@ -91,7 +93,10 @@ export default function Home() {
                   "&:hover": { transform: "scale(1.03)", transition: "transform 0.3s" },
                 }}
               >
-                <CardActionArea sx={{ height: "100%" }}>
+                <CardActionArea 
+                  sx={{ height: "100%" }}
+                  onClick={() => router.push(`/product/${item.id}`)}
+                >
                   <CardMedia
                     component="img"
                     image={item.img}
