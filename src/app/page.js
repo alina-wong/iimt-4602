@@ -3,6 +3,7 @@
 import { Box, Card, CardActionArea, CardMedia, CardContent, Typography, Grid} from "@mui/material";
 import { useRouter } from "next/navigation";
 import Slider from "react-slick";
+import FilterButton from "./components/FilterButton";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./globals.css";
@@ -41,10 +42,13 @@ export default function Home() {
   };
 
   return (
-    <Box sx={{ p: 3 }}>
-      <Typography variant="h5" gutterBottom>
-        Popular this week
-      </Typography>
+    <>
+      <FilterButton />
+      
+      <Box sx={{ p: 3 }}>
+        <Typography variant="h5" gutterBottom>
+          Popular this week
+        </Typography>
 
       <Slider {...settings}>
         {items.map((item, index) => (
@@ -118,5 +122,6 @@ export default function Home() {
         </Grid>
       </Box>
     </Box>
+    </>
   );
 }
