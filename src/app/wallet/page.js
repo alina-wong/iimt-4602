@@ -17,6 +17,34 @@ const getBackgroundColor = (color, theme, coefficient) => ({
 });
 
 const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
+  '& .MuiDataGrid-columnHeaders': {
+    backgroundColor: '#6A6A6A',
+    color: '#FFFFFF',
+    '& .MuiDataGrid-columnHeaderTitle': {
+      color: '#FFFFFF',
+      fontWeight: 'bold',
+    },
+  },
+  '& .MuiDataGrid-footerContainer': {
+    '& .MuiTablePagination-root': {
+      color: '#FFFFFF',
+    },
+    '& .MuiTablePagination-selectLabel': {
+      color: '#FFFFFF',
+    },
+    '& .MuiTablePagination-displayedRows': {
+      color: '#FFFFFF',
+    },
+    '& .MuiSelect-icon': {
+      color: '#FFFFFF',
+    },
+    '& .MuiIconButton-root': {
+      color: '#FFFFFF',
+    },
+    '& .MuiTablePagination-actions .MuiIconButton-root': {
+      color: '#FFFFFF',
+    },
+  },
   '& .eth-positive': {
     ...getBackgroundColor(theme.palette.success.main, theme, 0.7),
     '&:hover': {
@@ -73,7 +101,7 @@ export default function WalletPage() {
             alignItems: 'center',
             justifyContent: 'flex-start',
             minHeight: '80vh',
-            pt: 8
+            pt: 3
         }}>
             <DemoPaper 
                 variant="outlined" 
@@ -81,11 +109,13 @@ export default function WalletPage() {
                     p: 4, 
                     mb: 4, 
                     textAlign: 'center',
-                    minWidth: '150px'
+                    minWidth: '150px',
+                    backgroundColor: 'background.default',
+                    border: 'none'
                 }}
             >
                 <Typography variant="h6">
-                    Your Ethereum Balance
+                    Your Ethereum Balance:
                 </Typography>
                 <Typography variant="h3">
                     {AccountBalance} ETH

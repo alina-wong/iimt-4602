@@ -55,15 +55,15 @@ export default function ProfilePage() {
                 </Button>
             </Box>
 
-            <Typography variant="h6" sx={{ mb: 3, color: "#e0e0e0" }}>
-                Your Collection
+            <Typography variant="h6" sx={{ mb: 3 }}>
+                Collection Showcase
             </Typography>
             <Grid container spacing={3}>
                 {mockNFTs.map((nft, index) => (
                     <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                         <Card
                             sx={{
-                                backgroundColor: "rgba(255,255,255,0.05)",
+                                backgroundColor: "background.paper",
                                 borderRadius: 4,
                                 transition: "transform 0.3s",
                                 "&:hover": { transform: "scale(1.05)" },

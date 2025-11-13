@@ -21,7 +21,14 @@ export default function Header() {
             <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
                 <Typography
                     variant="h6"
-                    sx={{ fontWeight: 700, cursor: "pointer"}}
+                    sx={{ 
+                        fontWeight: 700, 
+                        cursor: "pointer",
+                        fontFamily: '"Orbitron", "Exo 2", "Rajdhani", "Space Mono", monospace',
+                        letterSpacing: "0.1em",
+                        fontSize: "1.5rem",
+                        textTransform: "uppercase",
+                    }}
                     onClick={() => router.push("/")}
                 >
                     Omniverse
