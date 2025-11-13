@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation';
 import WalletRoundedIcon from '@mui/icons-material/WalletRounded';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
+import AddIcon from '@mui/icons-material/Add';
+import StorefrontIcon from '@mui/icons-material/Storefront';
 //import './global.css';
 
 export default function Header() {
@@ -15,6 +17,8 @@ export default function Header() {
     const handleWalletClick = () => router.push("/wallet");
     const handleAvatarClick = () => router.push("/profile");
     const handleSettingsClick = () => router.push("/settings");
+    const handleSellClick = () => router.push("/sell");
+    const handleDashboardClick = () => router.push("/dashboard");
     
     return (
         <AppBar position="fixed">
@@ -35,20 +39,57 @@ export default function Header() {
                 </Typography>
 
                 <Toolbar sx={{ display: "flex", gap: 2}}>
+                    <Tooltip title="Mint" arrow>
+                        <IconButton 
+                            onClick={handleSellClick}
+                            sx={{
+                                "&:hover": { color: "black" }
+                            }}
+                        >
+                            <AddIcon />
+                        </IconButton>
+                    </Tooltip>
+
+                    <Tooltip title="My Dashboard" arrow>
+                        <IconButton 
+                            onClick={handleDashboardClick}
+                            sx={{
+                                "&:hover": { color: "black" }
+                            }}
+                        >
+                            <StorefrontIcon />
+                        </IconButton>
+                    </Tooltip>
+
                     <Tooltip title="Wallet" arrow>
-                        <IconButton onClick={handleWalletClick}>
+                        <IconButton 
+                            onClick={handleWalletClick}
+                            sx={{
+                                "&:hover": { color: "black" }
+                            }}
+                        >
                             <WalletRoundedIcon />
                         </IconButton>
                     </Tooltip>
 
                     <Tooltip title="Profile" arrow>
-                        <IconButton onClick={handleAvatarClick}>
+                        <IconButton 
+                            onClick={handleAvatarClick}
+                            sx={{
+                                "&:hover": { color: "black" }
+                            }}
+                        >
                             <AccountCircleIcon />
                         </IconButton>
                     </Tooltip>
 
                     <Tooltip title="Settings" arrow>
-                        <IconButton onClick={handleSettingsClick}>
+                        <IconButton 
+                            onClick={handleSettingsClick}
+                            sx={{
+                                "&:hover": { color: "black" }
+                            }}
+                        >
                             <SettingsRoundedIcon />
                         </IconButton>
                     </Tooltip>
