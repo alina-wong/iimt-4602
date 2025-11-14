@@ -1,20 +1,6 @@
 "use client";
 
-import {
-    Box,
-    Grid,
-    Paper,
-    Typography,
-    AppBar,
-    Toolbar,
-    Button,
-    IconButton,
-    Container,
-    Tooltip,
-    Stack,
-    Tabs,
-    Tab,
-} from "@mui/material";
+import { Box, Grid, Paper, Typography, AppBar, Toolbar, Button, IconButton, Container, Tooltip, Stack, Tabs, Tab } from "@mui/material";
 import { LineChart, BarChart } from "@mui/x-charts";
 import { DataGrid } from "@mui/x-data-grid";
 import { darken, lighten, styled } from "@mui/material/styles";
@@ -31,23 +17,50 @@ const getBackgroundColor = (color, theme, coefficient) => ({
 
 const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
     "& .MuiDataGrid-columnHeaders": {
-        backgroundColor: "#6A6A6A",
-        color: "#FFFFFF",
+        backgroundColor: "#7d7b7bff !important",
         "& .MuiDataGrid-columnHeaderTitle": {
-            color: "#FFFFFF",
+            color: "black",
             fontWeight: "bold",
+        },
+        "& .MuiDataGrid-columnHeader": {
+            backgroundColor: "#7d7b7bff !important",
         },
     },
     "& .MuiDataGrid-footerContainer": {
+        backgroundColor: "#7d7b7bff !important",
         "& .MuiTablePagination-root, .MuiTablePagination-selectLabel, .MuiTablePagination-displayedRows, .MuiSelect-icon, .MuiIconButton-root": {
-            color: "#FFFFFF",
+            color: "black",
         },
     },
     "& .eth-positive": {
         ...getBackgroundColor(theme.palette.success.main, theme, 0.7),
+        "&:hover": {
+            ...getBackgroundColor(theme.palette.success.main, theme, 0.6),
+        },
+        "&.Mui-selected": {
+            ...getBackgroundColor(theme.palette.success.main, theme, 0.5),
+            "&:hover": {
+                ...getBackgroundColor(theme.palette.success.main, theme, 0.4),
+            },
+        },
     },
     "& .eth-negative": {
         ...getBackgroundColor(theme.palette.error.main, theme, 0.7),
+        "&:hover": {
+            ...getBackgroundColor(theme.palette.error.main, theme, 0.6),
+        },
+        "&.Mui-selected": {
+            ...getBackgroundColor(theme.palette.error.main, theme, 0.5),
+            "&:hover": {
+                ...getBackgroundColor(theme.palette.error.main, theme, 0.4),
+            },
+        },
+    },
+    "& .eth-pending": {
+        backgroundColor: "#E3F2FD",
+        "&:hover": {
+            backgroundColor: "#BBDEFB",
+        },
     },
 }));
 
@@ -94,7 +107,7 @@ const mintedNFTsColumns = [
     { field: "dateCreated", headerName: "Created", width: 130 },
     { field: "price", headerName: "Price", width: 100 },
     { field: "status", headerName: "Status", width: 100 },
-    { field: "buyer", headerName: "Buyer", width: 150 },
+    { field: "buyer", headerName: "Buyer", width: 1000 },
 ];
 
 export default function DashboardPage() {
@@ -405,6 +418,8 @@ export default function DashboardPage() {
                                     getRowClassName={(params) => {
                                         if (params.row.status === "Sold") {
                                             return "eth-positive";
+                                        } else if (params.row.status === "Listed" || params.row.status === "Pending Mint") {
+                                            return "eth-pending";
                                         }
                                         return "";
                                     }}

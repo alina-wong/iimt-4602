@@ -18,31 +18,19 @@ const getBackgroundColor = (color, theme, coefficient) => ({
 
 const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
   '& .MuiDataGrid-columnHeaders': {
-    backgroundColor: '#6A6A6A',
-    color: '#FFFFFF',
+    backgroundColor: '#7d7b7bff !important',
     '& .MuiDataGrid-columnHeaderTitle': {
-      color: '#FFFFFF',
+      color: 'black',
       fontWeight: 'bold',
+    },
+    '& .MuiDataGrid-columnHeader': {
+        backgroundColor: '#7d7b7bff !important',
     },
   },
   '& .MuiDataGrid-footerContainer': {
-    '& .MuiTablePagination-root': {
-      color: '#FFFFFF',
-    },
-    '& .MuiTablePagination-selectLabel': {
-      color: '#FFFFFF',
-    },
-    '& .MuiTablePagination-displayedRows': {
-      color: '#FFFFFF',
-    },
-    '& .MuiSelect-icon': {
-      color: '#FFFFFF',
-    },
-    '& .MuiIconButton-root': {
-      color: '#FFFFFF',
-    },
-    '& .MuiTablePagination-actions .MuiIconButton-root': {
-      color: '#FFFFFF',
+    backgroundColor: '#7d7b7bff !important',
+    '& .MuiTablePagination-root, .MuiTablePagination-selectLabel, .MuiTablePagination-displayedRows, .MuiSelect-icon, .MuiIconButton-root': {
+      color: 'black',
     },
   },
   '& .eth-positive': {
@@ -82,7 +70,7 @@ export default function WalletPage() {
         { field: 'date', headerName: 'Date', width: 150 },
         { field: 'type', headerName: 'Type', width: 130 },
         { field: 'amount', headerName: 'Amount', width: 130 },
-        { field: 'status', headerName: 'Status', width: 130 },
+        { field: 'status', headerName: 'Status', width: 330 },
     ];
 
     const rows = [
