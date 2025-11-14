@@ -3,6 +3,7 @@
 import { Box, Typography, TextField, Button, Card, Grid, MenuItem, Select, FormControl, InputLabel, InputAdornment, OutlinedInput, FormHelperText, Paper, CircularProgress, Alert } from "@mui/material";
 import { useState } from "react";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import styles from './page.module.css';
 import "../globals.css";
 
@@ -131,11 +132,30 @@ export default function SellPage() {
                                 <>
                                     <CloudUploadIcon sx={{ fontSize: 48, color: 'text.secondary', mb: 2 }} />
                                     <Typography variant="h6" sx={{ mb: 1 }}>
-                                        Drag & drop your file here
+                                        Drop or browse to upload your file
                                     </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        or click to browse files
+                                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                                        or try out our camera feature
                                     </Typography>
+                                    
+                                    <Box sx={{ display: 'flex', gap: 1, mb: 2 }}>
+                                        <Button 
+                                            variant="outlined" 
+                                            size="small"
+                                            startIcon={<CameraAltIcon />}
+                                            sx={{ 
+                                                color: 'white',
+                                                borderColor: 'white',
+                                                '&:hover': {
+                                                    backgroundColor: 'rgba(0,0,0,0.04)',
+                                                    borderColor: 'black'
+                                                }
+                                            }}
+                                        >
+                                            Use Camera
+                                        </Button>
+                                    </Box>
+                                    
                                     <Typography variant="caption" sx={{ mt: 1 }}>
                                         Images: PNG, JPG, GIF | 3D Models: OBJ, FBX, GLTF | Mods: ZIP, RAR up to 50MB
                                     </Typography>
