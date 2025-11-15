@@ -94,8 +94,7 @@ export default function WalletPage() {
             <DemoPaper 
                 variant="outlined" 
                 sx={{ 
-                    p: 4, 
-                    mb: 4, 
+                    p: 4,
                     textAlign: 'center',
                     minWidth: '150px',
                     backgroundColor: 'background.default',

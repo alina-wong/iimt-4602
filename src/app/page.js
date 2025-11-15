@@ -55,7 +55,7 @@ export default function Home() {
           <Box key={index} sx={{ px: 1 }}>
             <Card
               sx={{
-                backgroundColor: "background.paper",
+                backgroundColor: "#ccc5b1ff",
                 transition: "transform 0.3s",
                 "&:hover": { transform: "scale(1.05)" },
               }}
@@ -93,6 +93,7 @@ export default function Home() {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
+                  backgroundColor: "#4A4A4A",
                   
                   "&:hover": { transform: "scale(1.03)", transition: "transform 0.3s" },
                 }}

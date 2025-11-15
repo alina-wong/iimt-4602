@@ -11,10 +11,30 @@ const Theme = createTheme({
         secondary: {
             main: "#3C3C3C",
         },
+        // Add custom color variants
+        success: {
+            main: "#4caf50",
+            light: "#e8f5e8",
+            dark: "#2e7d32"
+        },
+        info: {
+            main: "#2196f3",
+            light: "#e3f2fd",
+            dark: "#1565c0"
+        },
+        warning: {
+            main: "#ff9800",
+            light: "#fff3e0",
+            dark: "#f57c00"
+        },
         background: {
             default: "#F5F5DC",
-            paper: "#4A4A4A",
+            paper: "#FFFFFF", //cards
             appbar: "#F5F5DC",
+            // Add custom background variants
+            lightGray: "#f5f3f0",
+            darkerGray: "#e8e5e0",
+            orderSummary: "#e1dfdcff"
         },
         text: { 
             primary: "#000000",
@@ -38,15 +58,33 @@ const Theme = createTheme({
                 },
             },
         },
-        MuiCard: {
-            styleOverrides: {
-                root: {
-                    "& .MuiTypography-root": {
-                        color: "#FFFFFF",
-                    },
+        // Add custom component variants
+        MuiBox: {
+            variants: [
+                {
+                    props: { variant: 'orderSummary' },
+                    style: {
+                        backgroundColor: '#e1dfdcff',
+                        padding: 24,
+                        borderRadius: 8,
+                        marginBottom: 8
+                    }
                 },
-            },
+                {
+                    props: { variant: 'paymentOption' },
+                    style: {
+                        padding: 16,
+                        borderRadius: 8,
+                        cursor: 'pointer',
+                        border: '1px solid #e0e0e0',
+                        '&:hover': {
+                            backgroundColor: '#f5f5f5'
+                        }
+                    }
+                }
+            ]
         },
+        // Removed MuiCard override to use default text colors
     },
 });
 

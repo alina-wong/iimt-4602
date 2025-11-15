@@ -2,9 +2,9 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
-  turbopack: {
-    root: "/Users/alina/iimt-4602"
-  },
+  experimental: {
+    optimizePackageImports: ['@mui/x-data-grid', '@mui/material', '@mui/x-charts']
+  }
 };
 
 export default nextConfig;

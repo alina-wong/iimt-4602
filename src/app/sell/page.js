@@ -103,7 +103,7 @@ export default function SellPage() {
             )}
             
             <Grid container justifyContent="center">
-                <Grid item xs={12} md={8} lg={6} sx={{ maxWidth: '600px' }}>
+                <Grid item xs={12} md={8} lg={6} sx={{ maxWidth: '600px'}}>
                     <Card className={styles.sectionCard}>
                         <Typography variant="h6" className={styles.formTitle}>
                             NFT Details

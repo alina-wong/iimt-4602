@@ -119,7 +119,8 @@ export default function ProductPage() {
                             sx={{ 
                                 width: "100%", 
                                 height: 400, 
-                                objectFit: "cover" 
+                                objectFit: "cover",
+                                backgroundColor: "#ccc5b1ff",
                             }}
                         />
                     </Card>
@@ -167,8 +168,13 @@ export default function ProductPage() {
                             <Button 
                                 variant="contained" 
                                 size="medium"
+                                onClick={() => router.push(`/transaction?productId=${params.id}`)}
+                                sx={{ 
+                                    backgroundColor: 'black',
+                                    '&:hover': { backgroundColor: '#333' }
+                                }}
                             >
-                                Buy
+                                Buy Now
                             </Button>
                         </Box>
                     </Box>
