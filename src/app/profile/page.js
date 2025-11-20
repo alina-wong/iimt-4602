@@ -5,9 +5,9 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import "../globals.css";
 
 const mockNFTs = [
-    { name: "Cyber Ape #142", img: "/MockNfts/usernft1.jpeg", price: "2.3 ETH" },
-    { name: "Neon Cat #88", img: "/MockNfts/usernft2.jpeg", price: "1.1 ETH" },
-    { name: "Voxel Bot #512", img: "/MockNfts/usernft3.jpeg", price: "3.8 ETH" }
+    { name: "Gugnir", img: "/MockNfts/nft1.png", price: "1.2 ETH" },
+    { name: "Crakow", img: "/MockNfts/nft3.png", price: "2 ETH" },
+    { name: "Asiimov", img: "/MockNfts/nft4.png", price: "3.1 ETH" }
 ];
 
 export default function ProfilePage() {
@@ -63,7 +63,7 @@ export default function ProfilePage() {
                     <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                         <Card
                             sx={{
-                                backgroundColor: "background.paper",
+                                backgroundColor: "#ccc5b1ff",
                                 borderRadius: 4,
                                 transition: "transform 0.3s",
                                 "&:hover": { transform: "scale(1.05)" },

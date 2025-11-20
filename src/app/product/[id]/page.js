@@ -118,7 +118,7 @@ export default function ProductPage() {
                             alt={item.name}
                             sx={{ 
                                 width: "100%", 
-                                height: 400, 
+                                height: 700, 
                                 objectFit: "cover",
                                 backgroundColor: "#ccc5b1ff",
                             }}

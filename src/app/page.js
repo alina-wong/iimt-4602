@@ -11,20 +11,24 @@ import "./globals.css";
 //i use mock data for the nfts for now
 export default function Home() {
   const router = useRouter();
+  
+  // Add cache busting parameter to force image reload
+  const cacheBuster = `?v=${Date.now()}`;
+  
   const items = [
-    { id: 1, name: "Gungnir", price: "1.2 ETH", img: "/MockNfts/nft1.png" },
-    { id: 2, name: "Green Energy", price: "0.5 ETH", img: "/MockNfts/nft2.png" },
-    { id: 3, name: "Crakow!", price: "2.0 ETH", img: "/MockNfts/nft3.png" },
-    { id: 4, name: "Asiimov", price: "3.1 ETH", img: "/MockNfts/nft4.png" },
-    { id: 5, name: "Chromatic abberation", price: "0.8 ETH", img: "/MockNfts/nft5.png" },
+    { id: 1, name: "Gungnir", price: "1.2 ETH", img: `/MockNfts/nft1.png${cacheBuster}` },
+    { id: 2, name: "Green Energy", price: "0.5 ETH", img: `/MockNfts/nft2.png${cacheBuster}` },
+    { id: 3, name: "Crakow!", price: "2.0 ETH", img: `/MockNfts/nft3.png${cacheBuster}` },
+    { id: 4, name: "Asiimov", price: "3.1 ETH", img: `/MockNfts/nft4.png${cacheBuster}` },
+    { id: 5, name: "Chromatic abberation", price: "0.8 ETH", img: `/MockNfts/nft5.png${cacheBuster}` },
   ];
 //possibility to add a search bar & filter later?
   const gridItems = [
-    { id: 6, name: "StatTrak", price: "0.8 ETH", img: "/MockNfts/nft6.png" },
-    { id: 7, name: "Dragon Lore", price: "1.5 ETH", img: "/MockNfts/nft7.png" },
-    { id: 8, name: "Karambit", price: "2.2 ETH", img: "/MockNfts/nft8.png" },
-    { id: 9, name: "Aerial", price: "0.9 ETH", img: "/MockNfts/nft9.png" },
-    { id: 10, name: "Neon Rider", price: "3.0 ETH", img: "/MockNfts/nft10.png" },
+    { id: 6, name: "StatTrak", price: "0.8 ETH", img: `/MockNfts/nft6.png${cacheBuster}` },
+    { id: 7, name: "Dragon Lore", price: "1.5 ETH", img: `/MockNfts/nft7.png${cacheBuster}` },
+    { id: 8, name: "Karambit", price: "2.2 ETH", img: `/MockNfts/nft8.png${cacheBuster}` },
+    { id: 9, name: "Aerial", price: "0.9 ETH", img: `/MockNfts/nft9.png${cacheBuster}` },
+    { id: 10, name: "Neon Rider", price: "3.0 ETH", img: `/MockNfts/nft10.png${cacheBuster}` },
   ];
 
   const settings = {
@@ -66,6 +70,12 @@ export default function Home() {
                   height="75"
                   image={item.img}
                   alt={item.name}
+                  sx={{
+                    objectFit: "contain",
+                    objectPosition: "center",
+                    maxWidth: "100%",
+                    maxHeight: "230px"
+                  }}
                 />
                 <CardContent>
                   <Typography variant="subtitle1" sx={{ fontWeight: 70 }}>
@@ -93,8 +103,7 @@ export default function Home() {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
-                  backgroundColor: "#4A4A4A",
-                  
+                  backgroundColor: "#ccc5b1ff",
                   "&:hover": { transform: "scale(1.03)", transition: "transform 0.3s" },
                 }}
               >
@@ -106,7 +115,14 @@ export default function Home() {
                     component="img"
                     image={item.img}
                     alt={item.name}
-                    sx={{ width: "100%", height: 140, objectFit: "cover" }}
+                    sx={{ 
+                      width: "100%", 
+                      height: 140, 
+                      objectFit: "contain",
+                      objectPosition: "center",
+                      maxWidth: "100%",
+                      maxHeight: "230px"
+                    }}
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography variant="subtitle1" sx={{ fontWeight: 70 }}>
