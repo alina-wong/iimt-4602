@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
-import { AppBar, IconButton, Typography, Tooltip, Toolbar} from '@mui/material';
+import { AppBar, Box, IconButton, Typography, Tooltip, Toolbar} from '@mui/material';
 import { useRouter } from 'next/navigation';
 import WalletRoundedIcon from '@mui/icons-material/WalletRounded';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -23,20 +23,38 @@ export default function Header() {
     return (
         <AppBar position="fixed">
             <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-                <Typography
-                    variant="h6"
-                    sx={{ 
-                        fontWeight: 700, 
-                        cursor: "pointer",
-                        fontFamily: '"Orbitron", "Exo 2", "Rajdhani", "Space Mono", monospace',
-                        letterSpacing: "0.1em",
-                        fontSize: "1.5rem",
-                        textTransform: "uppercase",
-                    }}
-                    onClick={() => router.push("/")}
-                >
-                    Omniverse
-                </Typography>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                    <Typography
+                        variant="h6"
+                        sx={{ 
+                            fontWeight: 700, 
+                            cursor: "pointer",
+                            fontFamily: '"Orbitron", "Exo 2", "Rajdhani", "Space Mono", monospace',
+                            letterSpacing: "0.1em",
+                            fontSize: "1.5rem",
+                            textTransform: "uppercase",
+                        }}
+                        onClick={() => router.push("/")}
+                    >
+                        Omniverse
+                    </Typography>
+                    <Typography
+                        variant="subtitle1"
+                        sx={{
+                            fontWeight: 200,
+                            fontFamily: '"Orbitron", "Exo 2", "Rajdhani", "Space Mono", monospace',
+                            letterSpacing: "0.05em",
+                            fontSize: "1rem",
+                            cursor: "pointer",
+                            ml: 1,
+                            textTransform: "uppercase",
+                            display: { xs: "none", sm: "block" }
+                        }}
+                        onClick={() => router.push("/forum")}
+                    >
+                        Community Forums
+                    </Typography>
+                </Box>
 
                 <Toolbar sx={{ display: "flex", gap: 2}}>
                     <Tooltip title="Mint" arrow>
